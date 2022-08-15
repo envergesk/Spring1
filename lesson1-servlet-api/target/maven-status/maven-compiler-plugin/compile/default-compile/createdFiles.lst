@@ -1,0 +1,6 @@
+ru\kildeev\persist\UserRepository.class
+ru\kildeev\FirstHttpServlet.class
+ru\kildeev\FirstServlet.class
+ru\kildeev\UserServlet.class
+ru\kildeev\EncodingFilter.class
+ru\kildeev\persist\User.class
