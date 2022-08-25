@@ -4,12 +4,15 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.kildeev.persist.User;
 import ru.kildeev.persist.UserRepository;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -39,12 +42,20 @@ public class UserController {
 
 
     @PostMapping
-    public String saveUser(User user) {
+    public String saveUser(@Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "user_form";
+        }
+        if (!user.getPassword().equals(user.getMatchingPassword())) {
+            bindingResult.rejectValue("password", "password not match");
+            return "user_form";
+        }
         log.info("Method saveUser was hit");
         userRepository.update(user);
         return "redirect:/user";
     }
 
+    @PostMapping("/update")
     public String updateUser(User user){
         userRepository.update(user);
         return "redirect:/user";
