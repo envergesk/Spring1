@@ -18,11 +18,11 @@ public class UserRepository {
 
     @PostConstruct
     public void init() {
-        this.insert(new User("User 1"));
-        this.insert(new User("User 2"));
-        this.insert(new User("User 3"));
-        this.insert(new User("User 4"));
-        this.insert(new User("User 5"));
+        this.insert(new User("Andrew"));
+        this.insert(new User("John"));
+        this.insert(new User("Georgy"));
+        this.insert(new User("Vladimir"));
+        this.insert(new User("Bogdan"));
     }
 
     public List<User> findAll() {
