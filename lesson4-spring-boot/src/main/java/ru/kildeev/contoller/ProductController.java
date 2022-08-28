@@ -45,7 +45,7 @@ public class ProductController {
     @PostMapping
     public String saveProduct(@Valid Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "user_form";
+            return "product_form";
         }
         log.info("Method saveProduct was hit");
         productRepository.update(product);

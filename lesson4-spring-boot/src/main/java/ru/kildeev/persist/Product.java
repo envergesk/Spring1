@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Getter
 @Setter
@@ -19,6 +22,8 @@ public class Product {
     @NotBlank(message = "Должно быть указано имя продукта")
     private String type;
 
+    @Min(message = "Стоимость не может быть ниже 100", value = 100)
+    //@Pattern(regexp = "[\\s]*[0-9]",message="Должны быть указаны цифры")
     private Integer cost;
 
     public Product(String title, String type, Integer cost) {
