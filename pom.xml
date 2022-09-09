@@ -21,6 +21,7 @@
         <module>lesson2-context</module>
         <module>lesson3-mvc</module>
         <module>lesson4-spring-boot</module>
+        <module>lesson5_6-hibernate</module>
     </modules>
 
 
