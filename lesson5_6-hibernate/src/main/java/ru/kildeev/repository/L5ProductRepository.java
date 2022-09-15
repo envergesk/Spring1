@@ -1,8 +1,9 @@
-package ru.kildeev.model;
+package ru.kildeev.repository;
 
 import lombok.NoArgsConstructor;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
+import ru.kildeev.model.Product;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;

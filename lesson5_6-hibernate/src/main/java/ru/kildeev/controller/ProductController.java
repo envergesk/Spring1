@@ -6,9 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.kildeev.model.L5ProductRepository;
+import ru.kildeev.repository.L5ProductRepository;
 import ru.kildeev.model.Product;
-import ru.kildeev.model.ProductRepository;
 
 
 import javax.validation.Valid;
