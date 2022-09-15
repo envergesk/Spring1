@@ -1,21 +1,19 @@
 package ru.kildeev.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
 @ToString
 @Table(name = "products")
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -34,6 +32,12 @@ public class Product {
     //@Pattern(regexp = "[\\s]*[0-9]",message="Должны быть указаны цифры")
     @Column(name="cost", nullable = false)
     private Integer cost;
+
+    @ManyToOne
+    private Customer customer;
+
+    @OneToMany
+    private List<Customer> customers;
 
     public Product(String title, String type, Integer cost) {
         this.title = title;
