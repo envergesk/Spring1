@@ -3,27 +3,31 @@ package ru.kildeev.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.kildeev.repository.ProductDao;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "customers")
-@NoArgsConstructor
 @Getter
 @Setter
-public class Customer {
+@NoArgsConstructor
+@Table(name="line_items")
+public class LineItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-
-    @OneToMany(mappedBy = "customer")
-    private List<LineItem> products;
-
     @ManyToOne
     private Product product;
+
+    @ManyToOne
+    private Customer customer;
+
+    private Long quantity;
+
+    private String color;
+
+    private String size;
+
 }

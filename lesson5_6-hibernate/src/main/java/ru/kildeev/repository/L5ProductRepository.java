@@ -27,9 +27,9 @@ public class L5ProductRepository {
         entityManager = emFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
-        entityManager.persist(new Product("Teatone", "black", 500));
-        entityManager.persist(new Product("Greenfield", "green", 300));
-        entityManager.persist(new Product("Lipton", "yellow", 200));
+//      entityManager.persist(new Product("Teatone", "black", 500));
+//      entityManager.persist(new Product("Greenfield", "green", 300));
+//      entityManager.persist(new Product("Lipton", "yellow", 200));
 
         entityManager.getTransaction().commit();
         entityManager.close();

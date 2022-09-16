@@ -19,6 +19,7 @@
         <mapping class="ru.kildeev.model.Product"/>
         <mapping class="ru.kildeev.model.Contact"/>
         <mapping class="ru.kildeev.model.Customer"/>
+        <mapping class="ru.kildeev.model.LineItem"/>
 
     </session-factory>
 </hibernate-configuration>
