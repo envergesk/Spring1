@@ -1,8 +1,9 @@
-package ru.kildeev.model;
+package ru.kildeev.repository;
 
 import lombok.NoArgsConstructor;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
+import ru.kildeev.model.Product;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
@@ -26,9 +27,9 @@ public class L5ProductRepository {
         entityManager = emFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
-        entityManager.persist(new Product("Teatone", "black", 500));
-        entityManager.persist(new Product("Greenfield", "green", 300));
-        entityManager.persist(new Product("Lipton", "yellow", 200));
+//      entityManager.persist(new Product("Teatone", "black", 500));
+//      entityManager.persist(new Product("Greenfield", "green", 300));
+//      entityManager.persist(new Product("Lipton", "yellow", 200));
 
         entityManager.getTransaction().commit();
         entityManager.close();

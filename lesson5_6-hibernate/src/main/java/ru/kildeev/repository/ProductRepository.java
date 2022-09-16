@@ -1,6 +1,7 @@
-package ru.kildeev.model;
+package ru.kildeev.repository;
 
 import org.springframework.stereotype.Repository;
+import ru.kildeev.model.User;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;

@@ -10,11 +10,11 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .buildSessionFactory();
+//        EntityManagerFactory entityManagerFactory = new Configuration()
+//                .configure("hibernate.cfg.xml")
+//                .buildSessionFactory();
 
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
 //        **SQL**INSERT**OPERATION**
 //        entityManager.getTransaction().begin();
 //
@@ -56,7 +56,7 @@ public class Main {
 //       entityManager.remove(user);
 //       entityManager.getTransaction().commit();
 
-        entityManager.close();
-        entityManagerFactory.close();
+//        entityManager.close();
+//        entityManagerFactory.close();
     }
 }

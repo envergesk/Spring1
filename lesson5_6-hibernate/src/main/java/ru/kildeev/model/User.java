@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,15 +28,17 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
-    private String email;
+    @OneToMany (mappedBy = "user",
+        cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
+        orphanRemoval = true)
+    private List<Contact> contacts;
 
     @Column(nullable = false,length = 1024)
     private String password;
 
-    public User(String username, String email, String password) {
+    public User(String username, List<Contact> contacts, String password) {
         this.username = username;
-        this.email = email;
+        this.contacts = contacts;
         this.password = password;
     }
 }
