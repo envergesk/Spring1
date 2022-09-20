@@ -38,6 +38,55 @@
             <a class="btn btn-primary" th:href="@{product/add}">Add Product</a>
         </div>
 
+        <div class="col-12 mt-3">
+            <form class="form-inline">
+                <div class="form-group mb-2 mr-2">
+                    <label for="productFilter" class="sr-only">Username filter</label>
+                    <input type="text" class="form-control" id="productFilter"
+                           name="productFilter" placeholder="Product filter">
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Apply</button>
+            </form>
+        </div>
+
+        <div class="col-12 mt-3">
+            <form class="form-inline">
+                <div class="form-group mb-2 mr-2">
+                    <label for="typeFilter" class="sr-only">Type filter</label>
+                    <input type="text" class="form-control" id="typeFilter"
+                           name="typeFilter" placeholder="Type filter">
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Apply</button>
+            </form>
+        </div>
+
+        <div class="col-12 mt-3">
+            <form class="form-inline">
+                <div class="form-group mb-2 mr-2">
+                    <label for="maxCostFilter" class="sr-only">Max cost filter</label>
+                    <input type="text" class="form-control" id="maxCostFilter"
+                           name="maxCostFilter" placeholder="Max cost filter">
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Apply</button>
+            </form>
+        </div>
+
+        <div class="col-12 mt-3">
+            <form class="form-inline">
+                <div class="form-group mb-2 mr-2">
+                    <label for="minCostFilter" class="sr-only">Min cost filter</label>
+                    <input type="text" class="form-control" id="minCostFilter"
+                           name="minCostFilter" placeholder="Min cost filter">
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Apply</button>
+            </form>
+        </div>
+
+
         <div class="col-12">
             <table class="table table-bordered my-2">
                 <thead>

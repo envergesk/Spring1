@@ -1,19 +1,16 @@
 package ru.kildeev.contoller;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.kildeev.persist.User;
-import ru.kildeev.persist.InMemoryUserRepository;
 import ru.kildeev.persist.UserRepository;
-import ru.kildeev.persist.UserRepositoryImpl;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -21,12 +18,23 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserRepositoryImpl userRepository;
+    private final UserRepository userRepository;
 
+
+//   @GetMapping
+//   public String listPage(@RequestParam Optional<String> usernameFilter, Model model) {
+//       if (usernameFilter.isEmpty() || usernameFilter.get().isBlank()) {
+//           model.addAttribute("users", userRepository.findAll());
+//       } else {
+//           model.addAttribute("users", userRepository.findAllByUsernameLike("%" + usernameFilter.get() + "%"));
+//       }
+//       return "user";
+//   }
 
     @GetMapping
-    public String listPage(Model model) {
-        model.addAttribute("users", userRepository.findAll());
+    public String listPage(@RequestParam(required = false) String usernameFilter, Model model) {
+        usernameFilter = usernameFilter == null || usernameFilter.isBlank() ? null : "%" + usernameFilter.trim() + "%";
+        model.addAttribute("users", userRepository.userByUsername(usernameFilter));
         return "user";
     }
 

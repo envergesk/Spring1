@@ -20,8 +20,16 @@ public class ProductController {
     private final ProductRepository productRepository;
 
     @GetMapping
-    public String listPage(Model model) {
-        model.addAttribute("products", productRepository.findAll());
+    public String listPage(@RequestParam(required = false) String productFilter,
+                           @RequestParam(required = false) String typeFilter,
+                           @RequestParam(required = false) String minCostFilter,
+                           @RequestParam(required = false) String maxCostFilter,
+                           Model model) {
+        productFilter = productFilter == null || productFilter.isBlank() ? null : "%" + productFilter.trim() + "%";
+        typeFilter = typeFilter == null || typeFilter.isBlank() ? null : "%" + typeFilter.trim() + "%";
+        minCostFilter = minCostFilter == null || minCostFilter.isBlank() ? null : minCostFilter;
+        maxCostFilter = maxCostFilter == null || maxCostFilter.isBlank() ? null : maxCostFilter;
+        model.addAttribute("products", productRepository.productByFilter(productFilter, typeFilter, minCostFilter, maxCostFilter));
         return "product";
     }
 
@@ -32,8 +40,8 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteProductById(@PathVariable("id") long id){
-        productRepository.delete(id);
+    public String deleteProductById(@PathVariable("id") Long id){
+        productRepository.deleteById(id);
         return "redirect:/product";
     }
 
@@ -44,13 +52,13 @@ public class ProductController {
             return "product_form";
         }
         log.info("Method saveProduct was hit");
-        productRepository.update(product);
+        productRepository.save(product);
         return "redirect:/product";
     }
 
     @PostMapping("/update")
     public String updateProduct(Product product){
-        productRepository.update(product);
+        productRepository.save(product);
         return "redirect:/product";
     }
 
