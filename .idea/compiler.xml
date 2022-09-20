@@ -10,19 +10,18 @@
         <module name="lesson2-context" />
         <module name="lesson1-servlet-api" />
         <module name="lesson3-spring-mvc" />
+        <module name="lesson7-data-jpa" />
         <module name="lesson4-spring-boot" />
         <module name="lesson3-mvc" />
         <module name="lesson5_6-hibernate" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="lesson5_6-hibernate" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="lesson4-spring-boot" options="-parameters" />
       <module name="lesson5_6-hibernate" options="-parameters" />
+      <module name="lesson7-data-jpa" options="-parameters" />
     </option>
   </component>
 </project>
